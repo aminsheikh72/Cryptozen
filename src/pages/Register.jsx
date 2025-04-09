@@ -2,8 +2,8 @@ import React, { use, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { userRegister } from '../features/auth/AuthSlice';
 import { toast } from 'react-toastify';
-import CryptoLoader from '../components/CryptoLoader';
 import { Link, useNavigate } from 'react-router-dom';
+import AuthLoader from '../components/AuthLoader';
 
 const Register = () => {
   const {user,isLoading,isError,isSucces,message}= useSelector(state=> state.auth)
@@ -44,7 +44,7 @@ const Register = () => {
   }
  },[isError,message])
   if(isLoading){
-    return <CryptoLoader/>
+    return <AuthLoader/>
   }
 
   return (

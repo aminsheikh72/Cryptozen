@@ -110,7 +110,7 @@ export const getTrendingCoins = createAsyncThunk("TRENDING/COINS", async(_, thun
         return coins;
     } catch (error) {
         console.log(error);
-        return thunkAPI.rejectWithValue(error.response?.data?.error || "Something went wrong");
+        return thunkAPI.rejectWithValue(error.response?.data?.message || "Something went wrong");
     }
 });
 
@@ -122,7 +122,7 @@ export const getCoins = createAsyncThunk("GET/COINS", async(_, thunkAPI) => {
         
     } catch (error) {
         console.log(error);
-        return thunkAPI.rejectWithValue(error.response?.data?.error || "Something went wrong");
+        return thunkAPI.rejectWithValue(error.response?.data?.message || "Something went wrong");
     }
 });
 
@@ -134,7 +134,7 @@ export const getCoin = createAsyncThunk("GET/COIN", async(id, thunkAPI) => {
         
     } catch (error) {
         console.log(error);
-        return thunkAPI.rejectWithValue(error.response?.data?.error || "Something went wrong");
+        return thunkAPI.rejectWithValue(error.response?.data?.message || "Something went wrong");
     }
 });
 //  
@@ -147,6 +147,6 @@ export const searchCoin = createAsyncThunk("SEARCH/COIN", async(query, thunkAPI)
         
     } catch (error) {
         console.log(error);
-        return thunkAPI.rejectWithValue(error.response?.data?.error || "Something went wrong");
+        return thunkAPI.rejectWithValue(error.response?.data?.message || "Something went wrong");
     }
 });

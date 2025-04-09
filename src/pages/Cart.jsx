@@ -9,7 +9,8 @@ const Cart = () => {
   const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
 
   return (
-    <div className="bg-[#0F172A] text-white p-6 rounded-xl max-w-3xl mx-auto mt-6 shadow-lg border border-blue-800">
+    <div className=" flex items-center justify-center min-h-screen w-full">
+      <div className="bg-[#0F172A] text-white p-6 rounded-xl md:w-1/2 lg:1/2  w-[90%] mx-auto mt-6 shadow-lg border border-blue-800 ">
       <h2 className="text-2xl font-semibold mb-4 border-b border-blue-700 pb-2">
         Your Cart
       </h2>
@@ -50,6 +51,7 @@ const Cart = () => {
           Checkout
         </button>
       </div>
+    </div>
     </div>
   );
 };

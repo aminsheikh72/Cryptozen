@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import CryptoLoader from '../components/CryptoLoader';
+
 import { userLogin } from '../features/auth/AuthSlice';
+import AuthLoader from '../components/AuthLoader';
 
 const Login = () => {
 
@@ -37,7 +38,7 @@ useEffect(()=>{
 })
 
 if(isLoading){
-  return <CryptoLoader/>
+  return <AuthLoader/>
 }
 
 

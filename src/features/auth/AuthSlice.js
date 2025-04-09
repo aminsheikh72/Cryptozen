@@ -27,7 +27,8 @@ const authSlice = createSlice({
         })
         .addCase(userRegister.rejected,(state,action)=>{
             state.isLoading = false
-            state.isError = false 
+            state.isError = true
+            state.message = action.payload 
             state.isSuccess = false
         })
         .addCase(userLogin.pending,(state,action)=>{
@@ -43,7 +44,8 @@ const authSlice = createSlice({
         })
         .addCase(userLogin.rejected,(state,action)=>{
             state.isLoading = false
-            state.isError = false 
+            state.isError = true
+            state.message = action.payload 
             state.isSuccess = false
         })
         .addCase(logOut.fulfilled,(state,action)=>{
@@ -66,8 +68,8 @@ export const userRegister = createAsyncThunk("USER/REGISTER", async(formData, th
         localStorage.setItem("user",JSON.stringify(response.data))
         return response.data
     } catch (error) {
-        console.log(error);
-        return thunkAPI.rejectWithValue(error.response?.data?.error || "Something went wrong");
+       
+        return thunkAPI.rejectWithValue(error.response?.data?.message || "Something went wrong");
     }
 });
 export const userLogin = createAsyncThunk("USER/LOGIN", async(formData, thunkAPI) => {
@@ -76,8 +78,8 @@ export const userLogin = createAsyncThunk("USER/LOGIN", async(formData, thunkAPI
         localStorage.setItem("user",JSON.stringify(response.data))
         return response.data
     } catch (error) {
-        console.log(error);
-        return thunkAPI.rejectWithValue(error.response?.data?.error || "Something went wrong");
+        
+        return thunkAPI.rejectWithValue(error.response?.data?.message || "Something went wrong");
     }
 });
 
